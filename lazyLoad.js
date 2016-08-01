@@ -12,7 +12,7 @@
 		  }
     },
 
-    laod: function() {
+    load: function() {
         var thisObj = this;
 
 				//获取当前窗口的可见高度
