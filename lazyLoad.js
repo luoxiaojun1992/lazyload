@@ -38,11 +38,13 @@
 
     init: function() {
 			$(document).ready(function(){
+
         // 初始化加载图片
 		    $(this).load();
 			});
 
 			$(window).on('scroll',function(){
+
         // 滚动加载图片
 			  $(this).load();
 			});
