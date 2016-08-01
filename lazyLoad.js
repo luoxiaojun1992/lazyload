@@ -1,5 +1,4 @@
 (function($) {
-
 	$.fn.extend{
     lazyLoad: function(config) {
 
