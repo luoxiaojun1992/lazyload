@@ -22,17 +22,22 @@
 				var windowWidth = $(window).width();
 				$(thisObj).each(function(){
 
-					//获取图片的src属性
-					var src = $(this).attr('src');
+					//获取图片的origin-src属性
+					var origin_src = $(this).attr('origin-src');
+          if (origin_src) {
 
-					//替换图片src属性为src2属性，并移除src属性
-					$(this).attr('src2',src).removeAttr('src');
-
-					//获取图片的绝对位置
-					var offset = $(this).offset();
-					if(offset.left >= $(window).scrollLeft() && offset.top >= $(window).scrollTop() && offset.left <= ($(window).scrollLeft() + windowWidth) && offset.top <= ($(window).scrollTop() + windowHeigth)){
-						$(this).attr('src',src).removeAttr('src2').attr('alt','图片已加载！');
-					}
+					  //获取图片的绝对位置
+					  var offset = $(this).offset();
+            var obj_top_offset = offset.top;
+            var obj_left_offset = offset.left;
+            var top_boundary = $(window).scrollTop();
+            var bottom_boundary = $(window).scrollTop() + windowHeigth;
+            var left_boundary = $(window).scrollLeft();
+            var right_boundary = $(window).scrollLeft() + windowWidth;
+					  if(obj_left_offset >= left_boundary && obj_top_offset >= top_boundary && obj_left_offset <= right_boundary && obj_top_offset <= bottom_boundary) {
+						  $(this).attr('src', origin_src).removeAttr('origin-src');
+					  }
+          }
 				});
     },
 
